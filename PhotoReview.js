@@ -12,13 +12,15 @@ var {
   Component
 } = React;
 
-var BaseUrl = "https://recepti0n.herokuapp.com";
-
 var Button = require('react-native-button');
 
 var Form = require('./Form');
 
 var PhotoReview = React.createClass({
+  statics: {
+    title: 'Review your picture'
+  },
+
   render() {
     return (
       <View style={{flex: 1, alignItems: 'stretch'}}>
@@ -31,7 +33,7 @@ var PhotoReview = React.createClass({
   },
 
   _submit() {
-    fetch(BaseUrl + "/visits.json", {
+    fetch(this.props.baseUrl + "/visits.json", {
       method: 'POST',
       headers: {
        'Accept': 'application/json',
@@ -49,8 +51,9 @@ var PhotoReview = React.createClass({
       })
     })
     .then((response) => {
+      // this.props.navigator.popToTop();
       this.props.navigator.resetTo({
-        title: "Fill out the fields below",
+        title: Form.title,
         component: Form,
         passProps: {
           resetForm: true

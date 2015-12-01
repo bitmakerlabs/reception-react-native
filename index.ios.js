@@ -33,8 +33,11 @@ var ReceptionApp = React.createClass({
         style={styles.nav}
         navigationBarHidden={this.state.navigationBarHidden}
         initialRoute={{
-          title: "Fill out the fields below",
-          component: Form
+          title: Form.title,
+          component: Form,
+          passProps: {
+            baseUrl: "https://recepti0n.herokuapp.com"
+          }
         }} />
     );
   }
@@ -52,4 +55,5 @@ var styles = StyleSheet.create({
   }
 });
 
+// entry point to the app
 AppRegistry.registerComponent('ReceptionApp', () => ReceptionApp);

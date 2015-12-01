@@ -18,15 +18,20 @@ var Camera = require('react-native-camera');
 var PhotoReview = require('./PhotoReview');
 
 var PhotoCapture = React.createClass({
+  statics: {
+    title: 'Take a picture'
+  },
+
   _handleChangePage() {
     this.props.navigator.push({
-      title: "Review your picture",
+      title: PhotoReview.title,
       component: PhotoReview,
       passProps: {
         photo: this.state.photo,
         firstName: this.props.firstName,
         lastName: this.props.lastName,
-        host: this.props.host
+        host: this.props.host,
+        baseUrl: this.props.baseUrl
       }
     });
   },
@@ -39,17 +44,14 @@ var PhotoCapture = React.createClass({
   },
 
   render() {
-
     return (
       <Camera
         ref="cam"
         style={styles.container}
-        type={this.state.cameraType}
-      >
+        type={this.state.cameraType}>
         <Button style={{color: 'blue', margin: 10}} onPress={this._takePicture}>
           Take Picture
         </Button>
-
       </Camera>
     );
   },

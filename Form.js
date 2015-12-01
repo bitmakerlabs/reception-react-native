@@ -1,7 +1,5 @@
 'use strict';
 
-var BaseUrl = "https://recepti0n.herokuapp.com";
-
 var React = require('react-native');
 var {
   StyleSheet,
@@ -22,6 +20,10 @@ var Button = require('react-native-button');
 var PhotoCapture = require('./PhotoCapture');
 
 var Form = React.createClass({
+  statics: {
+    title: "Review your picture"
+  },
+
   getInitialState() {
     return {
       firstName: "",
@@ -33,12 +35,13 @@ var Form = React.createClass({
 
   _handleChangePage() {
     this.props.navigator.push({
-      title: "Take a picture",
+      title: PhotoCapture.title,
       component: PhotoCapture,
       passProps: {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
-        host: this.state.host
+        host: this.state.host,
+        baseUrl: this.props.baseUrl
       }
     });
   },
@@ -47,7 +50,7 @@ var Form = React.createClass({
     // fetch the list of hosts.
     // a host is the person who the visitor wants to see.
     // XXX: what about fetching from local device? how do you do that?
-    fetch(BaseUrl + "/hosts.json")
+    fetch(this.props.baseUrl + "/hosts.json")
       .then((response) => response.json())
       .then((responseJson) => {
         var middleHostIndex = Math.round(responseJson.length/2);
