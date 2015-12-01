@@ -44,7 +44,6 @@ var PhotoCapture = React.createClass({
       <Camera
         ref="cam"
         style={styles.container}
-        onBarCodeRead={this._onBarCodeRead}
         type={this.state.cameraType}
       >
         <Button style={{color: 'blue', margin: 10}} onPress={this._takePicture}>
