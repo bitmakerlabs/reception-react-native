@@ -11,6 +11,26 @@ to store the visit data.
 
 ![](doc/app_flow.png)
 
+## Setup
+
+### Prerequisites
+* Mac OS X 10.11
+* Xcode 7.1.1+
+* Node and NPM
+
+
+## How to run in Simulator
+
+* open ios/ReceptionApp.xcodeproj
+* In Xcode, select an iOS Simulator and Run (CMD+R)
+
+## How to run on device
+
+* open ios/ReceptionApp.xcodeproj
+* Connect your device (eg. iPad) over USB
+* In Xcode, select the device and Run (CMD+R)
+
+
 ## LICENSE and COPYRIGHT
 
 Licensed under the BSD license. See more details at [LICENSE.txt](LICENSE.txt)
