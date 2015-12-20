@@ -112,7 +112,6 @@ var Form = React.createClass({
         </PickerIOS>
 
         <Button style={{
-        color: 'green',
          borderWidth: 1,
           color: 'black',
            fontSize: 25,
