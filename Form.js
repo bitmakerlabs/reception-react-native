@@ -111,7 +111,13 @@ var Form = React.createClass({
           )}
         </PickerIOS>
 
-        <Button style={{color: 'green', padding: 10, borderWidth: 1}} onPress={this._handleChangePage}>
+        <Button style={{
+        color: 'green',
+         borderWidth: 1,
+          color: 'black',
+           fontSize: 25,
+           paddingTop: 10,
+           paddingBottom: 10}} onPress={this._handleChangePage}>
           Next
         </Button>
       </View>
